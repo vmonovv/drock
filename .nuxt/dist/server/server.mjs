@@ -1,0 +1,1 @@
+export { default } from "file:///Users/vitaly/Sites/regru_timur/drock/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"

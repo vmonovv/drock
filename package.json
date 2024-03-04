@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "^8.1.1",
+    "@nuxtjs/tailwindcss": "^6.6.5",
+    "@types/three": "^0.149.0",
+    "@vueuse/core": "^10.0.2",
+    "@vueuse/nuxt": "^10.0.2",
+    "nuxt": "^3.10.3",
+    "nuxt-icon": "^0.3.2"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.30",
+    "@headlessui/vue": "^1.7.19",
+    "@heroicons/vue": "^2.1.1",
+    "@nuxt/vite-builder": "^3.1.1",
+    "gsap": "^3.11.5",
+    "nuxt-tailwind-heroicons": "^1.0.4",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  }
+}
