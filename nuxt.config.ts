@@ -80,10 +80,20 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss", //tailwind
     "nuxt-icon",
     "@nuxtjs/i18n",
-    // "nuxt-swiper",
+    "@nuxtjs/google-fonts",
+    "nuxt-swiper",
+    
+    
     // "@nuxt/image",
   ],
   // image: {
   //   format: ['webp']
   // }
+
+  googleFonts: {
+    families: {
+      Oswald: [100, 400],
+      Inter: [100, 400],
+    },
+  },
 });

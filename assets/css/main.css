@@ -102,16 +102,26 @@ i {
   filter: blur(1rem);
 }
 
+
+
 html {
   /* font-size: 30.5%; */
   /* font-family: "Inter"; */
   /* font-family: "HelveticaNeueCyr"; */
-  font-family: 'Inter', sans-serif;
+  /* font-family: 'Inter', sans-serif; */
+  font-family: "Oswald", sans-serif;
+  color: white;
 
 }
+.f-inter {
+  font-family: 'Inter', sans-serif;
+}
 
+.f-oswald {
+  font-family: "Oswald", sans-serif;
+}
 body {
-  background: #182C28;
+  background: #181818;
 }
 
 /* 
@@ -500,6 +510,10 @@ html.has-scroll-smooth {
   }
 }
 
-button[data-fancybox-toggle-fullscreen],button[data-panzoom-action], button[data-fancybox-toggle-slideshow], button[data-panzoom-action], button[data-fancybox-toggle-thumbs]{
+button[data-fancybox-toggle-fullscreen],
+button[data-panzoom-action],
+button[data-fancybox-toggle-slideshow],
+button[data-panzoom-action],
+button[data-fancybox-toggle-thumbs] {
   display: none;
-  }
+}
