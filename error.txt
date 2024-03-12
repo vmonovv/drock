@@ -1,0 +1,159 @@
+<script setup>
+import { onMounted } from "vue";
+
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
+
+//Threу js
+const canvasRef = ref("null");
+
+onMounted(() => {
+  // Scene
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#0A0507");
+
+  // Renderer
+
+  const canvas = canvasRef.value;
+  const renderer = new THREE.WebGLRenderer({ canvas });
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  // Camera
+  const fov = 75;
+  const aspect = canvas.clientWidth / canvas.clientHeight;
+  const near = 0.1;
+  const far = 5;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.z = 3;
+
+  // Texture
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load("/img/textures/random/glassy-stone.jpg");
+  const material = new THREE.MeshPhongMaterial({ map: texture });
+
+  // Light
+  const color = 0xffffff;
+  const intensity = 1;
+  const light = new THREE.DirectionalLight(color, intensity);
+  light.position.set(-1, 2, 4);
+  scene.add(light);
+
+  // GLTF Loader with DRACO
+  const dracoLoader = new DRACOLoader();
+  dracoLoader.setDecoderPath("/js/libs/draco/");
+
+  //
+
+  const loader = new GLTFLoader();
+  loader.setDRACOLoader(dracoLoader);
+  loader.load(
+    // Resource URL
+    "/img/models/pillar-small.glb",
+    // Called when the resource is loaded
+    function (gltf) {
+      const model = gltf.scene;
+      model.scale.set(0.0064, 0.0064, 0.0064);
+      model.position.set(0.6, 1.4, 0);
+      model.traverse(function (child) {
+        if (child.isMesh) {
+          child.material = material;
+        }
+      });
+      scene.add(model);
+    }
+  );
+
+  loader.setDRACOLoader(dracoLoader);
+  loader.load(
+    // Resource URL
+    "/img/models/pillar.glb",
+    // Called when the resource is loaded
+    function (gltf) {
+      const model = gltf.scene;
+      model.scale.set(0.0044, 0.0044, 0.0044);
+      model.position.set(-1, -0.9, 0);
+      model.traverse(function (child) {
+        if (child.isMesh) {
+          child.material = material;
+        }
+      });
+      scene.add(model);
+    }
+  );
+
+
+
+  loader.load(
+    // Resource URL
+    "/img/models/pillar-medium.glb",
+    // Called when the resource is loaded
+    function (gltf) {
+      const model = gltf.scene;
+      model.scale.set(0.0044, 0.0044, 0.0044);
+      model.position.set(-0.2, -0.9, 0);
+      model.traverse(function (child) {
+        if (child.isMesh) {
+          child.material = material;
+        }
+      });
+      scene.add(model);
+    }
+  );
+
+  // Animation loop
+  function animate(time) {
+    time *= 0.0013;
+    scene.children.forEach((el, i) => {
+      if (i === 1) {
+        el.rotation.x = 0.4;
+        el.rotation.z = 0;
+        el.rotation.y = 0.2 * time;
+      } else if (i === 2) {
+        el.rotation.x = 0.8;
+        el.rotation.z = 0;
+        el.rotation.y = 0.2 * time;
+      }
+      else if (i === 3) {
+        el.rotation.x = 0.8;
+        el.rotation.z = 0.2 * time;
+        el.rotation.y = 0;
+      }
+    });
+
+    // Render scene
+    renderer.render(scene, camera);
+
+    // Request the next frame of the animation loop
+    requestAnimationFrame(animate);
+  }
+
+  // Resize canvas to display size
+  function resizeRendererToDisplaySize(renderer) {
+    const canvasRef = renderer.domElement;
+    const width = canvasRef.clientWidth;
+    const height = canvasRef.clientHeight;
+    const needResize = canvasRef.width !== width || canvasRef.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+  // Start animation loop
+  animate();
+});
+</script>
+
+<template>
+  <div>
+    <div class="relative h-[100vh] flex justify-center items-center flex-col">
+      <canvas ref="canvasRef" class="fadeStone w-full absolute h-full"></canvas>
+      <div class="title text-white relative z-20">{{ $t('error.2966') }}</div>
+      <a href="/" class="sub text-white relative z-20 -mt-10">{{ $t('error.2990') }}<span> <Icon name="material-symbols:arrow-outward" /></span>  </a>
+
+    </div>
+  </div>
+</template>
+<style scoped></style>

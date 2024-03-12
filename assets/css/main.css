@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 html {
-
   height: 100%;
 }
 
@@ -27,70 +24,6 @@ i {
   font-style: normal;
 }
 
-@media (min-width: 600px) {
-  .a-main:before {
-    min-height: 100%;
-    top: -10rem;
-    left: -40rem;
-    width: calc(100% + 80rem);
-    height: calc(100% + 127rem);
-    z-index: 9;
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    background-position: 50%;
-    background-image: url(/img/noise.png);
-    pointer-events: none;
-    animation: noise 1s steps(1) infinite;
-  }
-}
-
-@keyframes noise {
-  0% {
-    transform: translate3d(0, 9rem, 0);
-  }
-
-  10% {
-    transform: translate3d(-1rem, -4rem, 0);
-  }
-
-  20% {
-    transform: translate3d(-8rem, 2rem, 0);
-  }
-
-  30% {
-    transform: translate3d(9rem, -9rem, 0);
-  }
-
-  40% {
-    transform: translate3d(-2rem, 7rem, 0);
-  }
-
-  50% {
-    transform: translate3d(-9rem, -4rem, 0);
-  }
-
-  60% {
-    transform: translate3d(2rem, 6rem, 0);
-  }
-
-  70% {
-    transform: translate3d(7rem, -8rem, 0);
-  }
-
-  80% {
-    transform: translate3d(-9rem, 1rem, 0);
-  }
-
-  90% {
-    transform: translate3d(6rem, -5rem, 0);
-  }
-
-  to {
-    transform: translate3d(-7rem, 0, 0);
-  }
-}
-
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;
@@ -102,32 +35,14 @@ i {
   filter: blur(1rem);
 }
 
-
-
 html {
-  /* font-size: 30.5%; */
-  /* font-family: "Inter"; */
-  /* font-family: "HelveticaNeueCyr"; */
-  /* font-family: 'Inter', sans-serif; */
   font-family: "Oswald", sans-serif;
   color: white;
-
-}
-.f-inter {
-  font-family: 'Inter', sans-serif;
 }
 
-.f-oswald {
-  font-family: "Oswald", sans-serif;
-}
 body {
   background: #181818;
 }
-
-/* 
-.inter {
-    font-family: 'Inter', sans-serif;
-} */
 
 @media (min-width: 1024px) {
   html {
@@ -135,16 +50,14 @@ body {
   }
 }
 
-/* @media(min-width:640px) {
-    html {
-        font-size: 30.5%;
-    }
-} */
-
-html.has-scroll-smooth {
-  perspective: 1px;
+.f-oswald {
+  font-family: "Oswald", sans-serif;
 }
 
+.maxt {
+  font-weight: 700;
+  font-size: 177px;
+}
 
 .title {
   font-weight: 500;
@@ -162,8 +75,10 @@ html.has-scroll-smooth {
 }
 
 .sub {
-  line-height: 170%;
-  font-size: 17px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  line-height: 190%;
+  font-size: 19px;
 }
 
 .plr {
@@ -185,7 +100,6 @@ html.has-scroll-smooth {
 }
 
 @media (min-width: 640px) {
-
   .title {
     font-size: 8.4vw;
   }
@@ -201,7 +115,6 @@ html.has-scroll-smooth {
 
   .sub {
     font-size: 1.2vw;
-
   }
 
   .meds {
@@ -263,7 +176,7 @@ html.has-scroll-smooth {
   transition: transform 0.5s;
 }
 
-.white>.get-in-touch {
+.white > .get-in-touch {
   color: black;
   background-color: #fff;
 }
@@ -348,10 +261,6 @@ html.has-scroll-smooth {
   transition: all 1000ms cubic-bezier(0.71, 0, 0.29, 1);
 } */
 
-
-
-
-
 .page-left-enter-active {
   position: fixed;
   top: 0;
@@ -382,8 +291,6 @@ html.has-scroll-smooth {
 .page-left-enter-to .fadeHiddenScroll {
   transition: all 1000ms cubic-bezier(0.71, 0, 0.29, 1);
 } */
-
-
 
 .page-left-enter-from .TextAbout {
   opacity: 0;
@@ -494,7 +401,7 @@ html.has-scroll-smooth {
   margin-top: 2.5rem;
 }
 
-@media(max-width:575px) {
+@media (max-width: 575px) {
   .evDescription p {
     margin-top: 1.5rem;
   }

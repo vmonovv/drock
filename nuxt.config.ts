@@ -92,8 +92,8 @@ export default defineNuxtConfig({
 
   googleFonts: {
     families: {
-      Oswald: [100, 400],
-      Inter: [100, 400],
+      Oswald: [400,700],
+      'Open Sans': [400],
     },
   },
 });
