@@ -189,22 +189,63 @@ onMounted(() => {});
       </div>
     </div>
   </section>
+
+  <section>
+    <div class="plr">
+      <div class="title">OUR VARIETY</div>
+
+      <div class="sub mt-4 w-[596px]">
+        From 75cl to 60L, our collection boasts an array of sizes to cater to
+        diverse tastes and occasions. With four exquisite flavors to choose
+        from, our range ensures the perfect fit for any party or palate.
+      </div>
+      <Button class="mt-12">Buy Now</Button>
+      <img
+        class="inline-block max-w-[300px] rotate-[90deg]"
+        src="@/assets/img/05/01.webp"
+        alt=""
+      />
+    </div>
+  </section>
   <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
     <iframe
       class="absolute left-0 w-full top-0 h-full max-w-full"
       src="https://player.vimeo.com/video/911327142?muted=1&autoplay=1&autopause=0&controls=0&loop=1&app_id=122963"
       frameborder="0"
     ></iframe>
-    <div class="plr relative ">
+    <div class="plr relative">
       <div class="flex justify-between items-center">
-      <div class="relative z-[10]">
-        <img class="max-w-[200px]" src="@/assets/img/06/01.webp" alt="" />
-      </div>
-      <div class="max-w-[500px] ">
-        <h2 class="title">The Monumental 60L D. Rock Champagne</h2>
-        <div class="sub font-[400] mt-10">The colossal 60L D. Rock Champagne is the largest champagne bottle worldwide. As we push the boundaries of elegance and grandeur, this World Record promises to redefine celebratory extravagance.</div>
+        <div class="relative z-[10]">
+          <img class="max-w-[200px]" src="@/assets/img/06/01.webp" alt="" />
+        </div>
+        <div class="max-w-[500px]">
+          <h2 class="title">The Monumental 60L D. Rock Champagne</h2>
+          <div class="sub font-[400] mt-10">
+            The colossal 60L D. Rock Champagne is the largest champagne bottle
+            worldwide. As we push the boundaries of elegance and grandeur, this
+            World Record promises to redefine celebratory extravagance.
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+  <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
+    <div class="plr relative">
+      <div class="flex justify-between items-center">
+        <div class="max-w-[500px]">
+          <h2 class="title">History of CHAMPAGNE</h2>
+          <div class="sub font-[400] mt-10">
+            The heritage of champagne-making spans back to the medieval era,
+            tracing its origins through centuries of refinement and innovation.
+            Remarkably, until the 17th century, vintners in Champagne
+            predominantly crafted still wines, devoid of the effervescence that
+            characterizes modern champagne.
+          </div>
+        </div>
+        <div class="relative z-[10]">
+          <img class="" src="@/assets/img/07/01.webp" alt="" />
+        </div>
+      </div>
     </div>
   </section>
 </template>
