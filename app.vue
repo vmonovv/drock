@@ -198,11 +198,11 @@ onMounted(() => {});
     <div class="plr relative ">
       <div class="flex justify-between items-center">
       <div class="relative z-[10]">
-        <img class="max-w-[200px]" src="@/assets/img/04/01.webp" alt="" />
+        <img class="max-w-[200px]" src="@/assets/img/06/01.webp" alt="" />
       </div>
-      <div class="max-w-[500px]">
-        <h2>The Monumental 60L D. Rock Champagne</h2>
-        <div class="sub font-[400]">The colossal 60L D. Rock Champagne is the largest champagne bottle worldwide. As we push the boundaries of elegance and grandeur, this World Record promises to redefine celebratory extravagance.</div>
+      <div class="max-w-[500px] ">
+        <h2 class="title">The Monumental 60L D. Rock Champagne</h2>
+        <div class="sub font-[400] mt-10">The colossal 60L D. Rock Champagne is the largest champagne bottle worldwide. As we push the boundaries of elegance and grandeur, this World Record promises to redefine celebratory extravagance.</div>
       </div>
     </div>
     </div>
