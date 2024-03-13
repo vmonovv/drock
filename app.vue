@@ -248,6 +248,30 @@ onMounted(() => {});
       </div>
     </div>
   </section>
+
+
+  <section>
+  <div class="plr">
+    <div class="flex justify-center items-end">
+      <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
+      <div class="text-white sub">Founded nearly seven years ago,<br>Champagne D.Rock can be found across the globe. </div>
+    </div>
+    <div class="relative">
+      <img src="@/assets/img/12/map.svg" alt="Map with our locations" class="max-w-full">
+      <div class="absolute " style="top:10%; left:20%;" data-tooltip="Список 1">•</div>
+      <div class="absolute" style="top:30%; left:40%;" data-tooltip="Список 2">•</div>
+      <div class="absolute" style="top:50%; left:60%;" data-tooltip="Список 3">•</div>
+      <div class="absolute" style="top:70%; left:80%;" data-tooltip="Список 4">•</div>
+      <div class="absolute" style="top:90%; left:50%;" data-tooltip="Список 5">•</div>
+    </div>
+  </div>
+</section>
+
+  <section>
+    <div class="text-center sub pb-5">
+      Legal Please enjoy responsibly. You must be of legal drinking age to visit this site. Terms & Conditions | Privacy Policy 2024
+    </div>
+  </section>
 </template>
 
 <script setup></script>
