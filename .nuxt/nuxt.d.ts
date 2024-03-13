@@ -5,6 +5,7 @@
 /// <reference types="@nuxtjs/i18n" />
 /// <reference types="@nuxtjs/google-fonts" />
 /// <reference types="nuxt-swiper" />
+/// <reference types="shadcn-nuxt" />
 /// <reference types="@nuxt/devtools" />
 /// <reference types="@nuxt/telemetry" />
 /// <reference types="nuxt" />

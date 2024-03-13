@@ -72,7 +72,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ["~/assets/css/font.css", "~/assets/css/main.css"],
+  css: ["~/assets/css/font.css", "~/assets/css/main.css", "~/assets/css/tailwind.css"],
 
   modules: [
     "@vueuse/nuxt",
@@ -82,18 +82,30 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/google-fonts",
     "nuxt-swiper",
-    
-    
+    'shadcn-nuxt'
+
     // "@nuxt/image",
   ],
+
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
+  },
   // image: {
   //   format: ['webp']
   // }
 
   googleFonts: {
     families: {
-      Oswald: [400,700],
-      'Open Sans': [400],
+      Oswald: [400, 700],
+      "Open Sans": [400],
     },
   },
 });

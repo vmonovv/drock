@@ -121,6 +121,7 @@
     "../node_modules/@nuxtjs/i18n/runtime",
     "../node_modules/@nuxtjs/google-fonts/runtime",
     "../node_modules/nuxt-swiper/runtime",
+    "../node_modules/shadcn-nuxt/runtime",
     "../node_modules/@nuxt/devtools/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     ".."
@@ -135,6 +136,7 @@
     "../node_modules/@nuxtjs/i18n/runtime/server",
     "../node_modules/@nuxtjs/google-fonts/runtime/server",
     "../node_modules/nuxt-swiper/runtime/server",
+    "../node_modules/shadcn-nuxt/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "../dist",

@@ -90,10 +90,10 @@ onMounted(() => {});
     </div>
   </section>
 
-  <section class="bg-[#171717] relative h-[100vh] overflow-hidden">
+  <section class="bg-[#171717] relative max-w-full h-[100vh] overflow-hidden">
     <div class="plr h-full">
       <img
-        class="absolute -bottom-20 -right-20 w-auto z-0"
+        class="absolute -bottom-20 -right-20 max-w-full z-0"
         src="@/assets/img/02/bg.svg"
         alt=""
       />
@@ -149,10 +149,10 @@ onMounted(() => {});
     </div>
   </section>
 
-  <section>
-    <div class="plr h-full">
+  <section class="relative max-w-full h-[100vh] overflow-hidden">
+    <div class="plr h-full overflow-hidden">
       <img
-        class="absolute -bottom-20 -right-20 w-auto z-0"
+        class="absolute -bottom-20 -right-20 w-auto z-0 max-w-full"
         src="@/assets/img/02/bg.svg"
         alt=""
       />
@@ -169,13 +169,42 @@ onMounted(() => {});
             affixes the entire ensemble to the bottle, resulting in a truly
             one-of-a-kind masterpiece.
           </div>
-          <button>Buy Now</button>
+
+          <Button class="mt-12">Buy Now</Button>
         </div>
         <div></div>
         <div class="maxt uppercase text-[#ACACAC] f-oswald leading-[100%]">
-         <img class="max-w-[298px]"  src="@/assets/img/04/01.webp"alt="">
+          <div class="relative">
+            <span
+              class="relative right-[-30%] uppercase inline-block maxt rotate-[270deg] text-[#121212]"
+              >crystals</span
+            >
+            <img
+              class="absolute right-[40%] max-w-[160px] top-[50%] translate-y-[-50%]"
+              src="@/assets/img/04/01.webp"
+              alt=""
+            />
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
+    <iframe
+      class="absolute left-0 w-full top-0 h-full max-w-full"
+      src="https://player.vimeo.com/video/911327142?muted=1&autoplay=1&autopause=0&controls=0&loop=1&app_id=122963"
+      frameborder="0"
+    ></iframe>
+    <div class="plr relative ">
+      <div class="flex justify-between items-center">
+      <div class="relative z-[10]">
+        <img class="max-w-[200px]" src="@/assets/img/04/01.webp" alt="" />
+      </div>
+      <div class="max-w-[500px]">
+        <h2>The Monumental 60L D. Rock Champagne</h2>
+        <div class="sub font-[400]">The colossal 60L D. Rock Champagne is the largest champagne bottle worldwide. As we push the boundaries of elegance and grandeur, this World Record promises to redefine celebratory extravagance.</div>
+      </div>
+    </div>
     </div>
   </section>
 </template>
