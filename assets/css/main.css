@@ -52,7 +52,7 @@ body {
 
 .maxt {
   font-weight: 700;
-  font-size: 177px;
+  font-size: 14vh;
 }
 
 .title {
@@ -73,10 +73,10 @@ body {
 }
 
 .sub {
-  font-weight: 400;
+  font-weight: 300;
   font-family: "Open Sans", sans-serif;
   line-height: 190%;
-  font-size: 19px;
+  font-size: 16px;
 }
 
 .plr {
@@ -98,6 +98,10 @@ body {
 }
 
 @media (min-width: 640px) {
+  .maxt {
+
+    font-size: 177px;
+  }
   .title {
     font-size: 59px;
   }
@@ -112,7 +116,7 @@ body {
   }
 
   .sub {
-    font-size: 1.2vw;
+    font-size: 19px;
   }
 
   .meds {

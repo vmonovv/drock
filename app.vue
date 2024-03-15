@@ -3,21 +3,143 @@ import { onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-onMounted(() => {});
+const FadeBottle_1 = ref(null);
+const FadeBottle_2 = ref(null);
+
+onMounted(() => {
+  const heightPage = window.innerHeight;
+
+  let FadeBottle_1Y = heightPage + "px";
+  if (window.innerWidth < 640) {
+    FadeBottle_1Y = heightPage * 1.26 + "px";
+  }
+
+  // Анимация первой бутылки
+  FadeBottle_1.value = gsap.to(".FadeBottle_1", {
+    scrollTrigger: {
+      trigger: ".FadeBottleWrap_1",
+      start: "2% top",
+      end: "bottom top",
+      toggleActions: "play pause",
+      scrub: 1,
+    },
+    y: FadeBottle_1Y,
+  });
+
+  FadeBottle_2.value = gsap.to(".FadeBottle_2", {
+    scrollTrigger: {
+      trigger: ".FadeBottleWrap_2",
+      start: "2% 95%",
+      end: "top top",
+      toggleActions: "play pause",
+      scrub: 1,
+      // markers: true
+    },
+    scaleX: 1,
+    scaleY: 1,
+  });
+});
+
+const points = reactive([
+  {
+    id: "north-america",
+    title: "North America",
+    dotClass: "top-[43%] left-[18%]",
+    items: ["Coming soon!"],
+  },
+  {
+    id: "south-america",
+    title: "South America",
+    dotClass: "top-[65%] left-[28%]",
+    items: ["Coming soon!"],
+  },
+  {
+    id: "europe",
+    title: "Europe",
+    dotClass: "top-[38%] left-[52%]",
+    items: [
+      "Germany",
+      "Switzerland",
+      "Bulgaria",
+      "Italy",
+      "Czech Republic",
+      "Romania",
+      "France",
+      "Slovakia",
+      "Spain",
+      "Austria",
+      "Croatia",
+      "Greece",
+    ],
+  },
+  {
+    id: "asia",
+    title: "Asia",
+    dotClass: "top-[45%] left-[78%]",
+    items: [
+      "China",
+      "South Korea",
+      "Thailand",
+      "Japan",
+      "UAE",
+      "Vietnam",
+      "Taiwan",
+      "Malaysia",
+      "Indonesia",
+      "Singapore",
+    ],
+  },
+  {
+    id: "oceania",
+    title: "Oceania",
+
+    dotClass: "top-[77%] left-[85%]",
+    items: [
+      "China",
+      "South Korea",
+      "Thailand",
+      "Japan",
+      "UAE",
+      "Vietnam",
+      "Taiwan",
+      "Malaysia",
+      "Indonesia",
+      "Singapore",
+    ],
+  },
+]);
+
+const activePointId = ref(null);
+
+const setActivePointId = (id) => {
+  activePointId.value = id;
+  console.log(activePointId.value);
+};
+
+const clearActivePointId = () => {
+  activePointId.value = null;
+};
 </script>
+
 <template>
-  <section class="relative w-full h-[100vh]">
-    <iframe
+  <section
+    class="relative w-full min-h-[100vh] sm:h-[100vh] FadeBottleWrap_1 pt-10 pb-10"
+  >
+    <video
+      autoplay
+      loop
+      playsinline=""
+      muted
       class="absolute left-0 bottom-0 h-full w-full object-cover"
-      src="https://player.vimeo.com/video/911333278?muted=1&autoplay=1&autopause=0&controls=0&loop=1&app_id=122963"
+      src="@/assets/img/01/bg.mp4"
       frameborder="0"
-    ></iframe>
+    ></video>
     <div class="plr h-full">
       <div class="relative">
         <ul
-          class="z-20 top-10 flex absolute right-0 border border-[#4F4F4F] rounded-3xl px-[10px] py-[10px]"
+          class="z-[120] right-[-60px] sm:rotate-0 rotate-90 top-10 flex absolute sm:right-0 border border-[#4F4F4F] rounded-3xl px-[10px] py-[10px]"
         >
-          <li class="max-w-[20px] w-[20px] mx-2">
+          <li class="max-w-[20px] w-[20px] mx-2 sm:rotate-0 -rotate-90">
             <a href="#"
               ><svg
                 class="fill-[#818181]"
@@ -31,7 +153,7 @@ onMounted(() => {});
               </svg>
             </a>
           </li>
-          <li class="max-w-[20px] w-[20px] mx-2">
+          <li class="max-w-[20px] w-[20px] mx-2 sm:rotate-0 -rotate-90">
             <a href="#">
               <svg
                 class="fill-[#818181]"
@@ -45,7 +167,7 @@ onMounted(() => {});
               </svg>
             </a>
           </li>
-          <li class="max-w-[20px] w-[20px] mx-2">
+          <li class="max-w-[20px] w-[20px] mx-2 sm:rotate-0 -rotate-90">
             <a href="#"
               ><svg
                 class="fill-[#818181]"
@@ -59,7 +181,7 @@ onMounted(() => {});
               </svg>
             </a>
           </li>
-          <li class="max-w-[20px] w-[20px] mx-2">
+          <li class="max-w-[20px] w-[20px] mx-2 sm:rotate-0 -rotate-90">
             <a href="#"
               ><svg
                 class="fill-[#818181]"
@@ -77,47 +199,61 @@ onMounted(() => {});
       </div>
 
       <div
-        class="relative z-[10] flex flex-col justify-center items-center h-full"
+        class="relative z-[100] sm:z-[10] flex flex-col justify-center items-center h-full text-center"
       >
         <div class="mb-10"><img src="@/assets/img/logo.svg" alt="" /></div>
         <div>
-          <img class="max-w-[108px]" src="@/assets/img/b_1.webp" alt="" />
+          <img
+            class="max-w-[108px] FadeBottle_1"
+            src="@/assets/img/b_1.webp"
+            alt=""
+          />
         </div>
-        <h1 class="text-[#D1AF53] text-[30px] tracking-[40px] mt-[25px]">
+        <h1
+          class="text-[#D1AF53] text-[30px] tracking-[5px] sm:tracking-[40px] mt-[25px]"
+        >
           TASTE THE LUXURY
         </h1>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#171717] relative max-w-full h-[100vh] overflow-hidden">
+  <section
+    class="bg-[#171717] relative max-w-full sm:h-[100vh] overflow-hidden"
+  >
     <div class="plr h-full">
       <img
-        class="absolute -bottom-20 -right-20 max-w-full z-0"
+        class="absolute top-20 sm:-bottom-20 -right-20 max-w-full z-0"
         src="@/assets/img/02/bg.svg"
         alt=""
       />
       <div
-        class="flex items-center justify-between h-full pt-20 pb-20 relative z-10"
+        class="flex flex-col sm:flex-row items-center justify-between h-full py-10 sm:py-20 relative z-10"
       >
-        <div class="text-white max-w-[490px] self-center sub">
+        <div
+          class="text-white max-w-[490px] self-center sub order-2 sm:order-1 mt-[450px] sm:mt-0"
+        >
           Champagne D.ROCK embodies the essence of a quaint, picturesque family
           enterprise nestled in the heart of France's Champagne region. Crafted
           from a harmonious blend of hand-picked Chardonnay and Pinot Noir
           grapes cultivated in local vineyards, our champagne undergoes a
           meticulous process that begins with traditional Coquart pressing.
         </div>
-        <div></div>
-        <div class="maxt uppercase text-[#ACACAC] f-oswald leading-[100%]">
+
+        <div
+          class="maxt uppercase text-[#ACACAC] f-oswald leading-[100%] order-1 sm:order-2"
+        >
           <div>HEART</div>
-          <div>HEART</div>
+          <div class="animColorTxt">HEART</div>
           <div>HEART</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#1A1A1A] overflow-hidden max-h-[810px] h-[100vh]">
+  <section
+    class="bg-[#1A1A1A] overflow-hidden sm:min-h-auto min-h-[570px] sm:max-h-[810px] sm:h-[100vh] FadeBottleWrap_2"
+  >
     <div class="plr h-full">
       <div class="flex items-center h-full relative">
         <img
@@ -125,20 +261,22 @@ onMounted(() => {});
           src="@/assets/img/02/bg.svg"
           alt=""
         />
-        <div class="flex-[0_0_65%]">
+        <div
+          class="sm:flex-[0_0_65%] flex-[0_0_0%] sm:max-w-none max-w-[150px]"
+        >
           <div class="relative">
             <span
               class="relative left-[-20%] uppercase inline-block maxt rotate-[270deg] text-[#121212]"
               >grapes</span
             >
             <img
-              class="absolute left-[20%] max-w-[292px] top-[50%] translate-y-[-50%]"
+              class="absolute left-[-120%] sm:left-[20%] max-w-[292px] top-[50%] translate-y-[-50%] FadeBottle_2 scale-[0.5]"
               src="@/assets/img/03/b_2.webp"
               alt=""
             />
           </div>
         </div>
-        <p class="sub flex-[0_0_40%] max-w-[400px] relative z-10">
+        <p class="sub sm:flex-[0_0_40%] max-w-[400px] relative z-10 mt-10">
           The renowned white Chardonnay grapes, cherished for their crisp,
           delectable flavors, complement the darker Pinot Noir, which boasts a
           distinct bouquet and extraordinary texture. These dark blue grapes
@@ -149,7 +287,7 @@ onMounted(() => {});
     </div>
   </section>
 
-  <section class="relative max-w-full h-[100vh] overflow-hidden">
+  <section class="relative max-w-full sm:h-[100vh] overflow-hidden">
     <div class="plr h-full overflow-hidden">
       <img
         class="absolute -bottom-20 -right-20 w-auto z-0 max-w-full"
@@ -157,10 +295,10 @@ onMounted(() => {});
         alt=""
       />
       <div
-        class="flex items-center justify-between h-full pt-20 pb-20 relative z-10"
+        class="flex flex-col sm:flex-row items-center justify-between h-full py-10 sm:py-20 relative z-10"
       >
-        <div>
-          <div class="text-white max-w-[490px] self-center sub">
+        <div class="order-2 sm:order-1">
+          <div class="text-white max-w-[490px] self-center sub sm:mt-0 mt-10">
             Each black, elegantly frosted bottle is adorned with over 1000
             synthetic "Luk-Dymand" crystals, meticulously assembled by hand on
             smooth velveteen. These crystals, renowned for their unique sparkle
@@ -173,14 +311,16 @@ onMounted(() => {});
           <Button class="mt-12">Buy Now</Button>
         </div>
         <div></div>
-        <div class="maxt uppercase text-[#ACACAC] f-oswald leading-[100%]">
-          <div class="relative">
+        <div
+          class="maxt uppercase text-[#ACACAC] f-oswald leading-[100%] order-1"
+        >
+          <div class="relative sm:block flex justify-center">
             <span
-              class="relative right-[-30%] uppercase inline-block maxt rotate-[270deg] text-[#121212]"
+              class="absolute sm:relative right-[-30%] uppercase inline-block maxt rotate-[270deg] text-[#121212]"
               >crystals</span
             >
             <img
-              class="absolute right-[40%] max-w-[160px] top-[50%] translate-y-[-50%]"
+              class="sm:absolute sm:right-[40%] max-w-[160px] top-[50%] sm:translate-y-[-50%]"
               src="@/assets/img/04/01.webp"
               alt=""
             />
@@ -190,21 +330,33 @@ onMounted(() => {});
     </div>
   </section>
 
-  <section>
+  <section class="py-10 sm:py-20">
     <div class="plr">
-      <div class="title">OUR VARIETY</div>
+      <div class="flex flex-col justify-end items-end mb-48">
+        <div class="title">OUR VARIETY</div>
 
-      <div class="sub mt-4 w-[596px]">
-        From 75cl to 60L, our collection boasts an array of sizes to cater to
-        diverse tastes and occasions. With four exquisite flavors to choose
-        from, our range ensures the perfect fit for any party or palate.
+        <div class="sub mt-4 w-[596px] text-end">
+          From 75cl to 60L, our collection boasts an array of sizes to cater to
+          diverse tastes and occasions. With four exquisite flavors to choose
+          from, our range ensures the perfect fit for any party or palate.
+        </div>
+        <div>
+          <Button class="mt-12">Buy Now</Button>
+        </div>
       </div>
-      <Button class="mt-12">Buy Now</Button>
-      <img
-        class="inline-block max-w-[300px] rotate-[90deg]"
-        src="@/assets/img/05/01.webp"
-        alt=""
-      />
+      <div class="relative">
+        <span
+          class="left-0 uppercase -top-[90%] absolute inline-block maxt text-[#9C9C9C] maxt"
+          >75 to 60</span
+        >
+        <div class="z-10 relative">
+          <img
+            class="inline-block max-h-[200px]"
+            src="@/assets/img/05/01.png"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
   </section>
   <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
@@ -249,31 +401,77 @@ onMounted(() => {});
     </div>
   </section>
 
-
   <section>
-  <div class="plr">
-    <div class="flex justify-center items-end">
-      <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
-      <div class="text-white sub">Founded nearly seven years ago,<br>Champagne D.Rock can be found across the globe. </div>
+    <div class="plr">
+      <div class="flex justify-center items-end">
+        <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
+        <div class="text-white sub">
+          Founded nearly seven years ago,<br />Champagne D.Rock can be found
+          across the globe.
+        </div>
+      </div>
+
+      <div class="relative mapWrap">
+        <img
+          src="@/assets/img/12/map.svg"
+          alt="Map with our locations"
+          class="max-w-full"
+        />
+
+        <div v-for="(point, index) in points" :key="point">
+          <div
+            class="absolute flex flex-col items-center cursor-pointer"
+            :class="[point.dotClass, ]"
+          >
+            <div class="sub uppercase text-center">
+              {{ point.title }}
+            </div>
+            <div
+              class="pointMap  title h-[15px] w-[15px] sm:h-[30px] sm:w-[30px] bg-white rounded-[100%] cursor-pointer"
+              @mouseover="setActivePointId(point.id)"
+              @mouseleave="clearActivePointId"
+            ></div>
+          </div>
+
+          <ul
+            v-if="activePointId === point.id"
+            class="dot-list absolute bottom-[30px] left-[0px] "
+          >
+            <li v-for="item in point.items" :key="item">{{ item }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="relative">
-      <img src="@/assets/img/12/map.svg" alt="Map with our locations" class="max-w-full">
-      <div class="absolute " style="top:10%; left:20%;" data-tooltip="Список 1">•</div>
-      <div class="absolute" style="top:30%; left:40%;" data-tooltip="Список 2">•</div>
-      <div class="absolute" style="top:50%; left:60%;" data-tooltip="Список 3">•</div>
-      <div class="absolute" style="top:70%; left:80%;" data-tooltip="Список 4">•</div>
-      <div class="absolute" style="top:90%; left:50%;" data-tooltip="Список 5">•</div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section>
     <div class="text-center sub pb-5">
-      Legal Please enjoy responsibly. You must be of legal drinking age to visit this site. Terms & Conditions | Privacy Policy 2024
+      Legal Please enjoy responsibly. You must be of legal drinking age to visit
+      this site. Terms & Conditions | Privacy Policy 2024
     </div>
   </section>
 </template>
 
-<script setup></script>
+<style scoped>
+.animColorTxt {
+  animation: animColorTxt 0.6s linear infinite alternate;
+}
+@keyframes animColorTxt {
+  0% {
+    color: #acacac;
+  }
+  90% {
+    color: #484848;
+  }
+  100% {
+    color: #484848;
+  }
+}
 
-<style lang="scss" scoped></style>
+/* .pointMap:hover .pointMap_item {
+  opacity: 1;
+}
+.pointMap_item {
+  opacity: 0;
+} */
+</style>
