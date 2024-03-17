@@ -401,6 +401,63 @@ const clearActivePointId = () => {
     </div>
   </section>
 
+  <section class="relative max-w-full sm:h-[100vh] overflow-hidden bg-[#1A1A1A]">
+    <div class="plr h-full overflow-hidden">
+      <img
+        class="absolute -bottom-20 -right-20 w-auto z-0 max-w-full"
+        src="@/assets/img/02/bg.svg"
+        alt=""
+      />
+      <div
+        class="flex flex-col sm:flex-row items-center justify-between h-full py-10 sm:py-20 relative z-10"
+      >
+        <div class="">
+          <div class="text-white max-w-[490px] self-center sub sm:mt-0 mt-10">
+            The heritage of champagne-making spans back to the medieval era, tracing its origins through centuries of refinement 
+            and innovation. Remarkably, until the 17th century, vintners in Champagne predominantly crafted still wines, devoid of 
+            the effervescence that characterizes modern champagne.
+          </div>
+
+          <Button class="mt-12">Buy Now</Button>
+        </div>
+        <img class="max-w-[900px] " src="@/assets/img/09/09.webp">
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
+    <div class="plr relative">
+      <div class="flex justify-center items-center">
+        <div class="max-w-[500px]">
+          <h2 class="title">Customizations</h2>
+          <div class="sub font-[400] mt-10">
+            At D. Rock Champagne, we immerse ourselves in the realm of luxury, attuned to fulfilling its every demand. 
+            In response to this commitment, we've established a specialized division within our enterprise devoted 
+            exclusively to the customization of our bottles for esteemed private clubs and luxury establishments.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
+    <div class="plr relative">
+      <div class="flex justify-between items-center">
+        <div class="relative z-[10] ">
+          <img class="max-w-[800px]" src="@/assets/img/11/11.webp" alt="" />
+        </div>
+        <div class="max-w-[500px] ml-5">
+          <div class="sub font-[400] mt-10">
+            The quintessential brut champagne, akin to the excellence embodied by D.ROCK, is a masterful blend crafted from 
+            diverse grape varieties and soils. This meticulous composition serves as the bedrock, endowing each champagne with 
+            a nuanced balance and distinctive character. It's this art of blending that serves as the hallmark distinguishing 
+            various champagne producers.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="plr">
       <div class="flex justify-center items-end">
