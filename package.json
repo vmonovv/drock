@@ -25,17 +25,22 @@
     "@fancyapps/ui": "^5.0.30",
     "@headlessui/vue": "^1.7.19",
     "@heroicons/vue": "^2.1.1",
+    "@hookform/resolvers": "^3.3.4",
     "@nuxt/vite-builder": "^3.1.1",
     "@radix-icons/vue": "^1.0.0",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "gsap": "^3.11.5",
     "nuxt-swiper": "^1.2.2",
     "nuxt-tailwind-heroicons": "^1.0.4",
     "radix-vue": "^1.5.2",
+    "react-hook-form": "^7.51.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "zod": "^3.22.4"
   }
 }

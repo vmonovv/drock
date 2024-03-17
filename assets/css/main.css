@@ -34,6 +34,8 @@ i {
 html {
   font-family: "Oswald", sans-serif;
   color: white;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -52,7 +54,8 @@ body {
 
 .maxt {
   font-weight: 700;
-  font-size: 14vh;
+  font-size: 21vw;
+  font-family: "Oswald", sans-serif;
 }
 
 .title {

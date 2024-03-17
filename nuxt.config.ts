@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       charset: "utf-8",
       viewport:
         "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-      title: "Drock",
+      title: "Champagne D.ROCK",
 
       meta: [
         // <meta name="description" content="My amazing site">
@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Chess tournament in a unique atmosphere. You can become a sponsor of the tournament. You can become a partner. You can tell the other participants about your business in an informal environment.and investors. Live communication and interesting acquaintances.",
+            "Champagne D.ROCK embodies the essence of a quaint, picturesque family enterprise nestled in the heart of France's Champagne region. ",
         },
         { name: "msapplication-TileColor", content: "#fff" },
         { name: "theme-color", content: "#131112" },
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Chess tournament in a unique atmosphere. You can become a sponsor of the tournament. You can become a partner. You can tell the other participants about your business in an informal environment.and investors. Live communication and interesting acquaintances.",
+            "Champagne D.ROCK embodies the essence of a quaint, picturesque family enterprise nestled in the heart of France's Champagne region. ",
         },
         {
           property: "og:image",
