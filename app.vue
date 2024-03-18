@@ -713,7 +713,7 @@ const clearActivePointId = () => {
       </div>
     </div>
   </section>
-<!-- 
+
   <section class="relative max-w-full sm:h-[100vh] overflow-hidden bg-[#1A1A1A]">
     <div class="plr h-full overflow-hidden">
       <img
@@ -769,8 +769,9 @@ const clearActivePointId = () => {
         </div>
       </div>
     </div>
-  </section> -->
-  <!-- <section>
+  </section> 
+  
+  <section>
     <div class="plr">
       <div class="flex justify-center items-end">
         <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
@@ -811,7 +812,8 @@ const clearActivePointId = () => {
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
+  
   <section class="plr">
     <div class="mt-20 mb-32 flex flex-col sm:flex-row justify-between">
       <div class="relative flex">
