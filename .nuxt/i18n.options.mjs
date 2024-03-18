@@ -119,7 +119,7 @@ export const normalizedLocales = []
 
 export const NUXT_I18N_MODULE_ID = "@nuxtjs/i18n"
 export const parallelPlugin = false
-export const isSSG = false
+export const isSSG = true
 
 export const STRATEGIES = {
   "PREFIX": "prefix",

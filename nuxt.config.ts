@@ -23,7 +23,7 @@ export default defineNuxtConfig({
 
         {
           property: "og:title",
-          content: "Game of Kings",
+          content: "Champagne D.ROCK",
         },
         {
           property: "og:description",
