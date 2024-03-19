@@ -1,4 +1,35 @@
 <script setup>
+import slide1 from "assets/img/slides/blue_champagne.webp";
+import slide2 from "assets/img/slides/white_champagne.webp";
+import slide3 from "assets/img/slides/golden_champagne.webp";
+import slide4 from "assets/img/slides/rose_champagne.webp";
+
+const slides = [slide1, slide2, slide3, slide4];
+const slideText = [
+  {
+    header: "GLACIER",
+    description:
+      "<p>200% Chardonnay | 10gr Sugar <br />Brut | 3 years aged in the bottle</p>",
+  },
+  {
+    header: "BLANC DE BLANCS",
+    description:
+      "<p>100% Chardonnay | 10gr Sugar <br />Brut | 3 years aged in the bottle</p>",
+  },
+  {
+    header: "BRUTE GOLD",
+    description:
+      "<p>50% Chardonnay | 50% Pinot Noir <br />10gr Sugar | Brut | 2 years aged in the bottle</p>",
+  },
+  {
+    header: "ROSE",
+    description:
+      "<p>50% Pinot Noir | 45% Chardonnay <br />5% Pinot Mineur + Bouzy Redwine <br />10gr Sugar | Brut | 2 years aged in the bottle</p>",
+  },
+];
+
+// Массив с путями к изображениям
+const images = [slide1, slide2, slide3, slide4];
 import { onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -727,26 +758,6 @@ const clearActivePointId = () => {
       </div>
     </div>
   </section>
-<<<<<<< HEAD
-=======
-
-  <section class="relative max-w-full sm:h-[100vh] overflow-hidden bg-[#1A1A1A]">
-    <div class="plr h-full overflow-hidden">
-      <img
-        class="absolute -bottom-20 -right-20 w-auto z-0 max-w-full"
-        src="@/assets/img/02/bg.svg"
-        alt=""
-      />
-      <div
-        class="flex flex-col sm:flex-row items-center justify-between h-full py-10 sm:py-20 relative z-10"
-      >
-        <div class="">
-          <div class="text-white max-w-[490px] self-center sub sm:mt-0 mt-10">
-            The heritage of champagne-making spans back to the medieval era, tracing its origins through centuries of refinement 
-            and innovation. Remarkably, until the 17th century, vintners in Champagne predominantly crafted still wines, devoid of 
-            the effervescence that characterizes modern champagne.
-          </div>
->>>>>>> 343625d1e103281587569d016718f530b9344dc5
 
   <section
     class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] pb-0 py-10 sm:py-20"
@@ -822,6 +833,32 @@ const clearActivePointId = () => {
             for esteemed private clubs and luxury establishments.
           </div>
         </div>
+        <div>
+          <Swiper
+            :modules="[SwiperAutoplay, SwiperEffectCreative]"
+            :slides-per-view="1"
+            :loop="true"
+            :effect="'creative'"
+            :autoplay="{
+              delay: 8000,
+              disableOnInteraction: true,
+            }"
+            :creative-effect="{
+              prev: {
+                shadow: false,
+                translate: ['-20%', 0, -1],
+              },
+              next: {
+                translate: ['100%', 0, 0],
+              },
+            }"
+          >
+            <SwiperSlide v-for="slide in slideText" :key="slide">
+              <h3>{{ slide.header }}</h3>
+              <p v-html="slide.description"></p>
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
     </div>
   </section>
@@ -850,7 +887,6 @@ const clearActivePointId = () => {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
   </section>
   <section>
     <div class="plr bg-[#1A1A1A]">
@@ -859,15 +895,6 @@ const clearActivePointId = () => {
       >
         <div class="title uppercase sm:mr-[40px] mr-0">where to find us</div>
         <div class="text-white sub mt-2 sm:mt-0">
-=======
-  </section> 
-  
-  <section>
-    <div class="plr">
-      <div class="flex justify-center items-end">
-        <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
-        <div class="text-white sub">
->>>>>>> 343625d1e103281587569d016718f530b9344dc5
           Founded nearly seven years ago,<br />Champagne D.Rock can be found
           across the globe.
         </div>
@@ -905,14 +932,11 @@ const clearActivePointId = () => {
       </div>
     </div>
   </section>
-<<<<<<< HEAD
-  <section class="plr bg-[#1A1A1A] ">
-    <div class="pt-20 pb-32 flex flex-col sm:flex-row justify-between overflow-hidden">
-=======
-  
-  <section class="plr">
-    <div class="mt-20 mb-32 flex flex-col sm:flex-row justify-between">
->>>>>>> 343625d1e103281587569d016718f530b9344dc5
+
+  <section class="plr bg-[#1A1A1A]">
+    <div
+      class="pt-20 pb-32 flex flex-col sm:flex-row justify-between overflow-hidden"
+    >
       <div class="relative flex">
         <div>
           <ul
@@ -1014,10 +1038,10 @@ const clearActivePointId = () => {
           </div>
         </div>
       </div>
-      
+
       <form
         id="form"
-        class="sm:mt-0 mt-10 FadeTextR sm:flex-[0_0_30%] sm:mr-[10%] "
+        class="sm:mt-0 mt-10 FadeTextR sm:flex-[0_0_30%] sm:mr-[10%]"
       >
         <div class="flex items-center">
           <label class="sub inline-block mr-4 relative top-1">Name</label>
@@ -1068,20 +1092,25 @@ const clearActivePointId = () => {
 .animColorTxt {
   animation: animColorTxt 0.6s linear infinite alternate;
 }
+
 @keyframes animColorTxt {
   0% {
     color: #acacac;
   }
+
   90% {
     color: #484848;
   }
+
   100% {
     color: #484848;
   }
 }
+
 .AnimationBottle {
   animation: AnimationBottle 2s linear infinite alternate;
 }
+
 @keyframes AnimationBottle {
   0% {
     transform: translateY(0px);
@@ -1091,6 +1120,7 @@ const clearActivePointId = () => {
     transform: translateY(30px);
   }
 }
+
 /* .pointMap:hover .pointMap_item {
   opacity: 1;
 }
