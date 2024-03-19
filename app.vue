@@ -155,8 +155,22 @@ onMounted(() => {
       //   gsap.set(".FadeBottle_3", { y: "100%",duration:1, }); // Сбрасываем позицию при скролле вниз
       // },
     },
+
     duration: 1,
     y: 100 + "%",
+    onUpdate: function () {
+      // Проверка, достигла ли анимация 90% выполнения
+      if (this.progress() > 0.9) {
+        // Запуск анимации тени первой бутылки, если она ещё не была запущена
+        if (FadeBottle_3.value) {
+          FadeBottle_3.value = gsap.to(".FadeShadow_3", {
+            opacity: 1,
+            scale: 1,
+            duration: 1, // Продолжительность анимации
+          });
+        }
+      }
+    },
   });
 
   //# Анимация xtndh\hnjq бутылки
@@ -164,8 +178,8 @@ onMounted(() => {
   FadeBottle_4.value = gsap.from(".FadeBottle_4", {
     scrollTrigger: {
       trigger: ".FadeBottleWrap_5",
-      start: "-15% top",
-      end: "80% center",
+      start: "0 center",
+      end: "70% center",
       toggleActions: "restart pause resume reset",
       scrub: 2,
       // markers:true
@@ -587,7 +601,7 @@ const clearActivePointId = () => {
                 alt=""
               />
               <img
-                class="max-w-[350px] w-full relative -top-4"
+                class="max-w-[350px] w-full relative -top-4 FadeShadow_3 opacity-0 scale-0"
                 src="@/assets/img/01/bg_bottle.svg"
                 alt=""
               />
@@ -598,7 +612,7 @@ const clearActivePointId = () => {
     </div>
   </section>
 
-  <section class="py-10 sm:py-20 FadeBottleWrap_5">
+  <section class="py-10 sm:py-20 FadeBottleWrap_5 overflow-hidden">
     <div class="plr">
       <div class="flex flex-col justify-end items-end mb-28 sm:mb-48 relative">
         <svg
@@ -683,7 +697,7 @@ const clearActivePointId = () => {
         </div>
         <div class="max-w-[500px] sm:mr-10">
           <h2 class="title FadeTextR">The Monumental 60L D. Rock Champagne</h2>
-          <div class="sub  mt-5 sm:mt-10 FadeTextR">
+          <div class="sub mt-5 sm:mt-10 FadeTextR">
             The colossal 60L D. Rock Champagne is the largest champagne bottle
             worldwide. As we push the boundaries of elegance and grandeur, this
             World Record promises to redefine celebratory extravagance.
@@ -693,13 +707,13 @@ const clearActivePointId = () => {
     </div>
   </section>
   <section
-    class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] py-10 sm:py-20"
+    class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] pb-0 py-10 sm:py-20"
   >
     <div class="plr relative">
       <div class="flex sm:flex-row flex-col justify-between items-center">
         <div class="sm:order-1 order-2 max-w-[500px]">
           <h2 class="title FadeTextL">History of CHAMPAGNE</h2>
-          <div class="sub  mt-5 sm:mt-10 FadeTextL">
+          <div class="sub mt-5 sm:mt-10 FadeTextL">
             The heritage of champagne-making spans back to the medieval era,
             tracing its origins through centuries of refinement and innovation.
             Remarkably, until the 17th century, vintners in Champagne
@@ -713,40 +727,79 @@ const clearActivePointId = () => {
       </div>
     </div>
   </section>
-<!-- 
-  <section class="relative max-w-full sm:h-[100vh] overflow-hidden bg-[#1A1A1A]">
-    <div class="plr h-full overflow-hidden">
-      <img
-        class="absolute -bottom-20 -right-20 w-auto z-0 max-w-full"
-        src="@/assets/img/02/bg.svg"
-        alt=""
-      />
-      <div
-        class="flex flex-col sm:flex-row items-center justify-between h-full py-10 sm:py-20 relative z-10"
-      >
-        <div class="">
-          <div class="text-white max-w-[490px] self-center sub sm:mt-0 mt-10">
-            The heritage of champagne-making spans back to the medieval era, tracing its origins through centuries of refinement 
-            and innovation. Remarkably, until the 17th century, vintners in Champagne predominantly crafted still wines, devoid of 
-            the effervescence that characterizes modern champagne.
-          </div>
 
-          <Button class="mt-12">Buy Now</Button>
+  <section
+    class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] pb-0 py-10 sm:py-20"
+  >
+    <div class="plr relative sm:h-[100vh]">
+      <div
+        class="flex sm:flex-row flex-col h-full justify-between items-center"
+      >
+        <div class="flex-[0_0_50%]">
+          <video
+            autoplay
+            loop
+            playsinline=""
+            muted
+            class="sm:absolute left-0 bottom-0 h-full w-full object-cover"
+            src="@/assets/img/08/bg.mp4"
+            frameborder="0"
+          ></video>
         </div>
-        <img class="max-w-[900px] " src="@/assets/img/09/09.webp">
+
+        <div class="sm:order-2 order-1 max-w-[500px] flex-[0_0_50%]">
+          <div class="sub mt-5 sm:mt-10 FadeTextR">
+            The quintessential brut champagne, akin to the excellence embodied
+            by D.ROCK, is a masterful blend crafted from diverse grape varieties
+            and soils. This meticulous composition serves as the bedrock,
+            endowing each champagne with a nuanced balance and distinctive
+            character. It's this art of blending that serves as the hallmark
+            distinguishing various champagne producers.
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
+  <section
+    class="relative max-w-full sm:h-[100vh] overflow-hidden bg-[#1A1A1A]"
+  >
+    <div class="plr h-full overflow-hidden">
+      <div
+        class="flex flex-col sm:flex-row items-center justify-between h-full sm:py-20 relative z-10"
+      >
+        <div class="sm:order-1 order-2">
+          <div class="text-white max-w-[490px] self-center sub FadeTextL">
+            The heritage of champagne-making spans back to the medieval era,
+            tracing its origins through centuries of refinement and innovation.
+            Remarkably, until the 17th century, vintners in Champagne
+            predominantly crafted still wines, devoid of the effervescence that
+            characterizes modern champagne.
+          </div>
+
+          <Button class="mt-5 sm:mt-12 FadeTextL">Buy Now</Button>
+        </div>
+        <img
+          class="max-w-[900px] FadeImg sm:order-2 order-1"
+          src="@/assets/img/09/09.webp"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] py-20"
+  >
     <div class="plr relative">
       <div class="flex justify-center items-center">
         <div class="max-w-[500px]">
           <h2 class="title">Customizations</h2>
           <div class="sub font-[400] mt-10">
-            At D. Rock Champagne, we immerse ourselves in the realm of luxury, attuned to fulfilling its every demand. 
-            In response to this commitment, we've established a specialized division within our enterprise devoted 
-            exclusively to the customization of our bottles for esteemed private clubs and luxury establishments.
+            At D. Rock Champagne, we immerse ourselves in the realm of luxury,
+            attuned to fulfilling its every demand. In response to this
+            commitment, we've established a specialized division within our
+            enterprise devoted exclusively to the customization of our bottles
+            for esteemed private clubs and luxury establishments.
           </div>
         </div>
       </div>
@@ -755,26 +808,36 @@ const clearActivePointId = () => {
 
   <section class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A]">
     <div class="plr relative">
-      <div class="flex justify-between items-center">
-        <div class="relative z-[10] ">
-          <img class="max-w-[800px]" src="@/assets/img/11/11.webp" alt="" />
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center sm:min-h-[800px]"
+      >
+        <div class="relative z-[10]">
+          <img
+            class="max-w-[700px] FadeImg"
+            src="@/assets/img/11/11.webp"
+            alt=""
+          />
         </div>
-        <div class="max-w-[500px] ml-5">
-          <div class="sub font-[400] mt-10">
-            The quintessential brut champagne, akin to the excellence embodied by D.ROCK, is a masterful blend crafted from 
-            diverse grape varieties and soils. This meticulous composition serves as the bedrock, endowing each champagne with 
-            a nuanced balance and distinctive character. It's this art of blending that serves as the hallmark distinguishing 
-            various champagne producers.
+        <div class="max-w-[500px] sm:ml-5">
+          <div class="sub mt-10 FadeTextR">
+            The quintessential brut champagne, akin to the excellence embodied
+            by D.ROCK, is a masterful blend crafted from diverse grape varieties
+            and soils. This meticulous composition serves as the bedrock,
+            endowing each champagne with a nuanced balance and distinctive
+            character. It's this art of blending that serves as the hallmark
+            distinguishing various champagne producers.
           </div>
         </div>
       </div>
     </div>
-  </section> -->
-  <!-- <section>
-    <div class="plr">
-      <div class="flex justify-center items-end">
-        <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
-        <div class="text-white sub">
+  </section>
+  <section>
+    <div class="plr bg-[#1A1A1A]">
+      <div
+        class="flex sm:flex-row flex-col sm:justify-center sm:items-en py-20"
+      >
+        <div class="title uppercase sm:mr-[40px] mr-0">where to find us</div>
+        <div class="text-white sub mt-2 sm:mt-0">
           Founded nearly seven years ago,<br />Champagne D.Rock can be found
           across the globe.
         </div>
@@ -784,19 +847,19 @@ const clearActivePointId = () => {
         <img
           src="@/assets/img/12/map.svg"
           alt="Map with our locations"
-          class="max-w-full"
+          class="max-w-full sm:mt-0 mt-10"
         />
 
         <div v-for="(point, index) in points" :key="point">
           <div
             class="absolute flex flex-col items-center cursor-pointer"
-            :class="[point.dotClass, ]"
+            :class="[point.dotClass]"
           >
             <div class="sub uppercase text-center">
               {{ point.title }}
             </div>
             <div
-              class="pointMap  title h-[15px] w-[15px] sm:h-[30px] sm:w-[30px] bg-white rounded-[100%] cursor-pointer"
+              class="pointMap title h-[15px] w-[15px] sm:h-[30px] sm:w-[30px] bg-white rounded-[100%] cursor-pointer"
               @mouseover="setActivePointId(point.id)"
               @mouseleave="clearActivePointId"
             ></div>
@@ -804,16 +867,16 @@ const clearActivePointId = () => {
 
           <ul
             v-if="activePointId === point.id"
-            class="dot-list absolute bottom-[30px] left-[0px] "
+            class="dot-list absolute bottom-[30px] left-[0px]"
           >
             <li v-for="item in point.items" :key="item">{{ item }}</li>
           </ul>
         </div>
       </div>
     </div>
-  </section> -->
-  <section class="plr">
-    <div class="mt-20 mb-32 flex flex-col sm:flex-row justify-between">
+  </section>
+  <section class="plr bg-[#1A1A1A] ">
+    <div class="pt-20 pb-32 flex flex-col sm:flex-row justify-between overflow-hidden">
       <div class="relative flex">
         <div>
           <ul
@@ -915,7 +978,11 @@ const clearActivePointId = () => {
           </div>
         </div>
       </div>
-      <form class="sm:mt-0  mt-10 FadeTextR sm:flex-[0_0_30%] sm:mr-[10%]">
+      
+      <form
+        id="form"
+        class="sm:mt-0 mt-10 FadeTextR sm:flex-[0_0_30%] sm:mr-[10%] "
+      >
         <div class="flex items-center">
           <label class="sub inline-block mr-4 relative top-1">Name</label>
           <Input />
@@ -944,7 +1011,12 @@ const clearActivePointId = () => {
           >
           <Input />
         </div>
-        <button class="mt-10  px-16 py-2 text-[18px] font-[400] sub border-white rounded-[50px] border  text-white    font-300 hover:bg-stone-900/90 dark:bg-stone-50 dark:text-stone-white dark:hover:bg-white-50/90" type="submit">Send</button>
+        <button
+          class="mt-10 px-16 py-2 text-[18px] font-[400] sub border-white rounded-[50px] border text-white font-300 hover:bg-stone-900/90 dark:bg-stone-50 dark:text-stone-white dark:hover:bg-white-50/90"
+          type="submit"
+        >
+          Send
+        </button>
       </form>
     </div>
   </section>
