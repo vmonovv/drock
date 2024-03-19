@@ -1,35 +1,8 @@
 <script setup>
-import slide1 from "assets/img/slides/blue_champagne.webp";
-import slide2 from "assets/img/slides/white_champagne.webp";
-import slide3 from "assets/img/slides/golden_champagne.webp";
-import slide4 from "assets/img/slides/rose_champagne.webp";
-
-const slides = [slide1, slide2, slide3, slide4];
-const slideText = [
-  {
-    header: "GLACIER",
-    description:
-      "<p>200% Chardonnay | 10gr Sugar <br />Brut | 3 years aged in the bottle</p>",
-  },
-  {
-    header: "BLANC DE BLANCS",
-    description:
-      "<p>100% Chardonnay | 10gr Sugar <br />Brut | 3 years aged in the bottle</p>",
-  },
-  {
-    header: "BRUTE GOLD",
-    description:
-      "<p>50% Chardonnay | 50% Pinot Noir <br />10gr Sugar | Brut | 2 years aged in the bottle</p>",
-  },
-  {
-    header: "ROSE",
-    description:
-      "<p>50% Pinot Noir | 45% Chardonnay <br />5% Pinot Mineur + Bouzy Redwine <br />10gr Sugar | Brut | 2 years aged in the bottle</p>",
-  },
-];
-
-// Массив с путями к изображениям
-const images = [slide1, slide2, slide3, slide4];
+import slide1 from "assets/img/slides/01.png";
+import slide2 from "assets/img/slides/02.png";
+import slide3 from "assets/img/slides/03.png";
+import slide4 from "assets/img/slides/04.png";
 import { onMounted, onUnmounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -315,6 +288,39 @@ const points = reactive([
   },
 ]);
 
+const slides = [slide1, slide2, slide3, slide4];
+
+const slideText = reactive([
+  {
+    header: "GLACIER",
+    description:
+      "<p>200% Chardonnay | 10gr Sugar <br />Brut | 3 years aged in the bottle</p>",
+  },
+  {
+    header: "BLANC DE BLANCS",
+    description:
+      "<p>100% Chardonnay | 10gr Sugar <br />Brut | 3 years aged in the bottle</p>",
+  },
+  {
+    header: "BRUTE GOLD",
+    description:
+      "<p>50% Chardonnay | 50% Pinot Noir <br />10gr Sugar | Brut | 2 years aged in the bottle</p>",
+  },
+  {
+    header: "ROSE",
+    description:
+      "<p>50% Pinot Noir | 45% Chardonnay <br />5% Pinot Mineur + Bouzy Redwine <br />10gr Sugar | Brut | 2 years aged in the bottle</p>",
+  },
+]);
+const swiperText = ref(null);
+const swiperImg = ref(null);
+const setSwiperText = (swiper) => {
+  swiperText.value = swiper;
+};
+const setSwiperImg = (swiper) => {
+  swiperImg.value = swiper;
+};
+
 const activePointId = ref(null);
 
 const setActivePointId = (id) => {
@@ -434,12 +440,6 @@ const clearActivePointId = () => {
     class="bg-[#171717] relative max-w-full sm:h-[100vh] overflow-hidden"
   >
     <div class="plr h-full overflow-hidden">
-      <!-- <img
-        class="absolute bottom-0 sm:bottom-[-40%] -right-20 object-cover w-[100%] sm:w-[1400px] z-0 FadeShadow_1"
-        src="@/assets/img/02/bg.svg"
-        alt=""
-      /> -->
-
       <svg
         class="absolute bottom-[-40%] right-5 sm:-right-20 object-cover w-[1400px] sm:w-[1400px] z-0 FadeShadow_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -822,7 +822,7 @@ const clearActivePointId = () => {
     class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] py-20"
   >
     <div class="plr relative">
-      <div class="flex justify-center items-center">
+      <div class="">
         <div class="max-w-[500px]">
           <h2 class="title">Customizations</h2>
           <div class="sub font-[400] mt-10">
@@ -834,28 +834,36 @@ const clearActivePointId = () => {
           </div>
         </div>
         <div>
-          swiper
-            :modules="[SwiperAutoplay, SwiperEffectCreative]"
+          <Swiper
+            :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperController]"
             :slides-per-view="1"
             :loop="true"
-            :effect="'creative'"
-            :autoplay="{
-              delay: 8000,
-              disableOnInteraction: true,
-            }"
-            :creative-effect="{
-              prev: {
-                shadow: false,
-                translate: ['-20%', 0, -1],
-              },
-              next: {
-                translate: ['100%', 0, 0],
-              },
-            }"
+            :controller="{ control: swiperText }"
+            @swiper="setSwiperImg"
+          >
+            <SwiperSlide v-for="slide in slides" :key="slide">
+              <img class="max-h-[250px]" :src="slide" alt="#" />
+            </SwiperSlide>
+          </Swiper>
+
+          <Swiper
+            :modules="[
+              SwiperAutoplay,
+              SwiperEffectCreative,
+              SwiperEffectFade,
+              SwiperController,
+            ]"
+            :slides-per-view="1"
+            :effect="'fade'"
+            :loop="true"
+            :controller="{ control: swiperImg }"
+            @swiper="setSwiperText"
           >
             <SwiperSlide v-for="slide in slideText" :key="slide">
-              <h3>{{ slide.header }}</h3>
-              <p v-html="slide.description"></p>
+              <div style="display: block">
+                <h3>{{ slide.header }}</h3>
+                <div v-html="slide.description"></div>
+              </div>
             </SwiperSlide>
           </Swiper>
         </div>
