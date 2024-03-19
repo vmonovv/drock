@@ -727,6 +727,26 @@ const clearActivePointId = () => {
       </div>
     </div>
   </section>
+<<<<<<< HEAD
+=======
+
+  <section class="relative max-w-full sm:h-[100vh] overflow-hidden bg-[#1A1A1A]">
+    <div class="plr h-full overflow-hidden">
+      <img
+        class="absolute -bottom-20 -right-20 w-auto z-0 max-w-full"
+        src="@/assets/img/02/bg.svg"
+        alt=""
+      />
+      <div
+        class="flex flex-col sm:flex-row items-center justify-between h-full py-10 sm:py-20 relative z-10"
+      >
+        <div class="">
+          <div class="text-white max-w-[490px] self-center sub sm:mt-0 mt-10">
+            The heritage of champagne-making spans back to the medieval era, tracing its origins through centuries of refinement 
+            and innovation. Remarkably, until the 17th century, vintners in Champagne predominantly crafted still wines, devoid of 
+            the effervescence that characterizes modern champagne.
+          </div>
+>>>>>>> 343625d1e103281587569d016718f530b9344dc5
 
   <section
     class="relative overflow-hidden w-full max-w-full bg-[#1A1A1A] pb-0 py-10 sm:py-20"
@@ -830,6 +850,7 @@ const clearActivePointId = () => {
         </div>
       </div>
     </div>
+<<<<<<< HEAD
   </section>
   <section>
     <div class="plr bg-[#1A1A1A]">
@@ -838,6 +859,15 @@ const clearActivePointId = () => {
       >
         <div class="title uppercase sm:mr-[40px] mr-0">where to find us</div>
         <div class="text-white sub mt-2 sm:mt-0">
+=======
+  </section> 
+  
+  <section>
+    <div class="plr">
+      <div class="flex justify-center items-end">
+        <div class="text-[59px] uppercase mr-[40px]">where to find us</div>
+        <div class="text-white sub">
+>>>>>>> 343625d1e103281587569d016718f530b9344dc5
           Founded nearly seven years ago,<br />Champagne D.Rock can be found
           across the globe.
         </div>
@@ -875,8 +905,14 @@ const clearActivePointId = () => {
       </div>
     </div>
   </section>
+<<<<<<< HEAD
   <section class="plr bg-[#1A1A1A] ">
     <div class="pt-20 pb-32 flex flex-col sm:flex-row justify-between overflow-hidden">
+=======
+  
+  <section class="plr">
+    <div class="mt-20 mb-32 flex flex-col sm:flex-row justify-between">
+>>>>>>> 343625d1e103281587569d016718f530b9344dc5
       <div class="relative flex">
         <div>
           <ul
