@@ -834,7 +834,7 @@ const clearActivePointId = () => {
           </div>
         </div>
         <div>
-          <Swiper
+          swiper
             :modules="[SwiperAutoplay, SwiperEffectCreative]"
             :slides-per-view="1"
             :loop="true"
