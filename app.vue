@@ -223,19 +223,19 @@ const points = reactive([
   {
     id: "north-america",
     title: "North America",
-    dotClass: "top-[43%] left-[18%]",
+    dotClass: "top-[30%] left-[9%] sm:top-[43%] sm:left-[18%]",
     items: ["Coming soon!"],
   },
   {
     id: "south-america",
     title: "South America",
-    dotClass: "top-[65%] left-[28%]",
+    dotClass: "top-[55%] left-[20%] sm:top-[65%] sm:left-[28%]",
     items: ["Coming soon!"],
   },
   {
     id: "europe",
     title: "Europe",
-    dotClass: "top-[38%] left-[52%]",
+    dotClass: "top-[28%] left-[45%] sm:top-[38%] sm:left-[52%]",
     items: [
       "Germany",
       "Switzerland",
@@ -254,7 +254,7 @@ const points = reactive([
   {
     id: "asia",
     title: "Asia",
-    dotClass: "top-[45%] left-[78%]",
+    dotClass: "top-[34%] left-[75%] sm:top-[45%] sm:left-[78%]",
     items: [
       "China",
       "South Korea",
@@ -272,19 +272,8 @@ const points = reactive([
     id: "oceania",
     title: "Oceania",
 
-    dotClass: "top-[77%] left-[85%]",
-    items: [
-      "China",
-      "South Korea",
-      "Thailand",
-      "Japan",
-      "UAE",
-      "Vietnam",
-      "Taiwan",
-      "Malaysia",
-      "Indonesia",
-      "Singapore",
-    ],
+    dotClass: "top-[65%] left-[78%] sm:top-[77%] sm:left-[85%]",
+    items: ["Coming soon!"],
   },
 ]);
 
@@ -860,7 +849,7 @@ const clearActivePointId = () => {
             @swiper="setSwiperText"
           >
             <SwiperSlide v-for="slide in slideText" :key="slide">
-              <div style="display: block">
+              <div class="bg-[#1A1A1A]" style="display: block">
                 <h3>{{ slide.header }}</h3>
                 <div v-html="slide.description"></div>
               </div>
@@ -899,10 +888,12 @@ const clearActivePointId = () => {
   <section>
     <div class="plr bg-[#1A1A1A]">
       <div
-        class="flex sm:flex-row flex-col sm:justify-center sm:items-en py-20"
+        class="flex sm:flex-row flex-col sm:justify-center sm:items-en pt-20 items-start sm:items-end"
       >
-        <div class="title uppercase sm:mr-[40px] mr-0">where to find us</div>
-        <div class="text-white sub mt-2 sm:mt-0">
+        <div class="title uppercase sm:mr-[40px] mr-0 leading-none">
+          where to find us
+        </div>
+        <div class="text-white sub mt-5 sm:mt-0 leading-tight">
           Founded nearly seven years ago,<br />Champagne D.Rock can be found
           across the globe.
         </div>
@@ -915,12 +906,12 @@ const clearActivePointId = () => {
           class="max-w-full sm:mt-0 mt-10"
         />
 
-        <div v-for="(point, index) in points" :key="point">
+        <div v-for="point in points" :key="point">
           <div
             class="absolute flex flex-col items-center cursor-pointer"
             :class="[point.dotClass]"
           >
-            <div class="sub uppercase text-center">
+            <div class="sub uppercase text-center sm:text-[16px] text-[10px]">
               {{ point.title }}
             </div>
             <div
@@ -932,9 +923,11 @@ const clearActivePointId = () => {
 
           <ul
             v-if="activePointId === point.id"
-            class="dot-list absolute bottom-[30px] left-[0px]"
+            class="dot-list absolute bottom-[15px] sm:bottom-[35px] left-[0px] sub sm:text-[16px] text-[8px]"
           >
-            <li v-for="item in point.items" :key="item">{{ item }}</li>
+            <li class="leading-tight" v-for="item in point.items" :key="item">
+              {{ item }}
+            </li>
           </ul>
         </div>
       </div>
@@ -1075,7 +1068,7 @@ const clearActivePointId = () => {
         </div>
         <div class="flex items-center mt-5">
           <label class="sub inline-block mr-4 text-nowrap relative top-1"
-            >Quesion</label
+            >Question</label
           >
           <Input />
         </div>
